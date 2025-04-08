@@ -5,15 +5,16 @@ import { Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-type PageProps = {
-  params: {
-    locale: string;
-    slug: string;
-  };
-};
+// type PageProps = {
+//   params: {
+//     locale: string;
+//     slug: string;
+//   };
+// };
 
-export default async function Page({ params }: PageProps) {
-  const { locale, slug } = await params;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default async function Page({ params }: any) {
+  const { locale, slug } = params;
 
   const res = await contentfulClient.getEntries<PageEntry>({
     content_type: "page",
